@@ -1,7 +1,12 @@
 yellow assembly: NC_004354.4
 efetch -db=nucleotide -id=NC_004354.4 -format=fasta>yellow.fasta
 
-Mauritiana
-SRR7167952
-efetch -db=nucleotide -id=SRR7167952 -format=fasta>Mauritiana.fasta -> did not work
-wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/002/SRR7167952/SRR7167952_1.fastq.gz
+Or46 a
+efetch -db=nucleotide -id=NT_033778.4 -format=fasta>Or46a.fasta
+
+
+combine yellow and OR46a into one file 
+ cat Or46a.fasta yellow.fasta > seqcombined.fasta
+
+Bowtie
+  bowtie2-build seqcombined.fasta D.melRef
