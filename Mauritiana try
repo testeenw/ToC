@@ -1,0 +1,9 @@
+Mauritiana
+SRR7167952
+efetch -db=nucleotide -id=SRR7167952 -format=fasta>Mauritiana.fasta -> did not work
+
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/002/SRR7167952/SRR7167952_1.fastq.gz
+gzip -d SRR7167952_1.fastq.gz
+
+bowtie2 -x D.melRef -U SRR7167952_1.fastq -S MauritianaB2.sam
+  #had to change -1 to -U
