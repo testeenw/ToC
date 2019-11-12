@@ -10,3 +10,6 @@ combine yellow and OR46a into one file
 
 Bowtie
   bowtie2-build seqcombined.fasta D.melRef
+  
+Don't want a bowtie...
+makeblastdb -in seqcombined.fasta -dbtype nucl -title seqcombineddb
