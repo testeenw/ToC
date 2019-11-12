@@ -5,5 +5,15 @@ efetch -db=nucleotide -id=SRR7167952 -format=fasta>Mauritiana.fasta -> did not w
 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/002/SRR7167952/SRR7167952_1.fastq.gz
 gzip -d SRR7167952_1.fastq.gz
 
-bowtie2 -x D.melRef -U SRR7167952_1.fastq -S MauritianaB2.sam
+####bowtie2 -x D.melRef -U SRR7167952_1.fastq -S MauritianaB2.sam
   #had to change -1 to -U
+  
+Blast command
+blastn -db seqcombineddb -query SRR7167952_1.fasta -out MauritianaBLAST -outfmt 7
+  *had to change query from fastq to fasta using sed -n '1~4s/^@/>/p;2~4p' SRR7167952_1.fastq > SRR7167952_1.fasta
+
+
+
+
+ makeblastdb -in seqcombined.fasta -dbtype nucl -title seqcombineddb -out seqcombineddb
+ 
