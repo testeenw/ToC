@@ -17,3 +17,10 @@ blastn -db seqcombineddb -query SRR7167952_1.fasta -out MauritianaBLAST -outfmt 
 
  makeblastdb -in seqcombined.fasta -dbtype nucl -title seqcombineddb -out seqcombineddb
  
+ 
+ Blastable database the other way
+  makeblastdb -in SRR7167952_1.fasta -dbtype nucl -out Mauritianadb
+ Throw around the other things 
+  blastn -db Mauritianadb -query seqcombined.fasta -out MauritianaBLAST2 -outfmt 7
+  
+IT WORKED!!!
