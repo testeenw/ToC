@@ -24,3 +24,10 @@ blastn -db seqcombineddb -query SRR7167952_1.fasta -out MauritianaBLAST -outfmt 
   blastn -db Mauritianadb -query seqcombined.fasta -out MauritianaBLAST2 -outfmt 7
   
 IT WORKED!!!
+Towards excell
+imported txt file
+>90%id
+
+yellow gene is 23542271 bp
+  best match NC_004354.4	SRR7167952.339637	87.386	19875	1204	888	0	21610
+             NT_033778.4	SRR7167952.364646	87.467	23068	1421	999	0	25226
