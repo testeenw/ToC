@@ -1,0 +1,10 @@
+Eurgracilis
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/003/SRR7167953/SRR7167953_1.fastq.gz 
+
+Willistoni
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/003/SRR7167954/SRR7167954_1.fastq.gz 
+  gzip -d SRR7167954_1.fastq.gz
+  sed -n '1~4s/^@/>/p;2~4p' SRR7167954_1.fastq > SRR7167954_1.fasta
+  makeblastdb -in SRR7167954_1.fasta -dbtype nucl -out Willistonidb
+  blastn -db Willistonidb -query seqcombined.fasta -out WillistoniBLAST.txt -outfmt 7
+
