@@ -21,7 +21,12 @@ biarmipes
 ananassae
   sed -n '1~4s/^@/>/p;2~4p' SRR7167957_1.fastq > SRR7167957_1.fasta
   makeblastdb -in SRR7167957_1.fasta -dbtype nucl -out Ananassaedb 
-  blastn -db Ananassaedb -query seqcombined.fasta -out AnanassaeBLAST.txt -outfmt 7\
+  blastn -db Ananassaedb -query seqcombined.fasta -out AnanassaeBLAST.txt -outfmt 7
   
 Verilis 
   wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/008/SRR7167958/SRR7167958_1.fastq.gz
+  sed -n '1~4s/^@/>/p;2~4p' SRR7167958_1.fastq > SRR7167958_1.fasta
+  makeblastdb -in SRR7167958_1.fasta -dbtype nucl -out Verilisdb
+  blastn -db Verilisdb -query seqcombined.fasta -out AnanassaeBLAST.txt -outfmt 7
+  
+Simulans
