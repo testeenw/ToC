@@ -27,6 +27,10 @@ Verilis
   wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/008/SRR7167958/SRR7167958_1.fastq.gz
   sed -n '1~4s/^@/>/p;2~4p' SRR7167958_1.fastq > SRR7167958_1.fasta
   makeblastdb -in SRR7167958_1.fasta -dbtype nucl -out Verilisdb
-  blastn -db Verilisdb -query seqcombined.fasta -out AnanassaeBLAST.txt -outfmt 7
+  blastn -db Verilisdb -query seqcombined.fasta -out VerilisBLAST.txt -outfmt 7
   
 Simulans
+  9_1
+  sed -n '1~4s/^@/>/p;2~4p' SRR7167959_1.fastq > SRR7167959_1.fasta
+  makeblastdb -in SRR7167959_1.fasta -dbtype nucl -out Simulansdb
+  blastn -db Simulansdb -query seqcombined.fasta -out SimulansBLAST.txt -outfmt 7
