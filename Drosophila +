@@ -64,6 +64,14 @@ Simulans
   
   Persimilis
   64
+  zip -d SRR7167964_1.fastq.gz
+  sed -n '1~4s/^@/>/p;2~4p' SRR7167964_1.fastq > SRR7167964_1.fasta  
+  makeblastdb -in SRR7167964_1.fasta -dbtype nucl -out Persimilisdb
+  blastn -db Persimilisdb -query seqcombined.fasta -out PersimilisBLAST.txt -outfmt 7
   
   yakuba
   65
+  gzip -d SRR7167965_1.fastq.gz
+  sed -n '1~4s/^@/>/p;2~4p' SRR7167965_1.fastq > SRR7167965_1.fasta
+  makeblastdb -in SRR7167965_1.fasta -dbtype nucl -out Yakubadb
+  blastn -db Yakubadb -query seqcombined.fasta -out YakubaBLAST.txt -outfmt 7
