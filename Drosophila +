@@ -47,3 +47,23 @@ Simulans
   sed -n '1~4s/^@/>/p;2~4p' SRR7167961_1.fastq > SRR7167961_1.fasta
   makeblastdb -in SRR7167961_1.fasta -dbtype nucl -out Sechelliadb
   blastn -db Sechelliadb -query seqcombined.fasta -out SechelliaBLAST.txt -outfmt 7
+  
+  Pseudoobscura
+  wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/001/SRR7167961/SRR7167962_1.fastq.gz
+  gzip -d SRR7167962_1.fastq.gz
+  sed -n '1~4s/^@/>/p;2~4p' SRR7167962_1.fastq > SRR7167962_1.fasta
+  makeblastdb -in SRR7167962_1.fasta -dbtype nucl -out Pseudoobscuradb
+  blastn -db Pseudoobscuradb -query seqcombined.fasta -out PseudoobscraBLAST.txt -outfmt 7
+  
+  Bipectinata
+  wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/001/SRR7167961/SRR7167963_1.fastq.gz
+  gzip -d SRR7167963_1.fastq.gz
+  sed -n '1~4s/^@/>/p;2~4p' SRR7167963_1.fastq > SRR7167963_1.fasta
+  makeblastdb -in SRR7167963_1.fasta -dbtype nucl -out Bipectinatadb
+  blastn -db Bipectinatadb -query seqcombined.fasta -out BipectinataBLAST.txt -outfmt 7
+  
+  Persimilis
+  64
+  
+  yakuba
+  65
