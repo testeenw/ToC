@@ -1,0 +1,16 @@
+library(readr)
+library(tidyverse)
+library(DESeq2)
+library(ggplot2)
+
+conservationT <- as_tibble(Results)
+conservationR <- conservationT[!is.na(conservationT$bitscore),] #get rid of NA values
+
+
+ggplot(data=conservationR, aes(x= reorder(species, -bitscore), y=bitscore, fill=gene)) +
+  geom_bar(stat="identity", position=position_dodge(), na.rm=TRUE) +
+  xlab("Species")+
+  scale_fill_discrete(name="Gene",
+                      breaks=c("NC_004354.4", "NT_033778.4"),
+                      labels=c("or", "yellow"))+
+  ggtitle("conservation")
