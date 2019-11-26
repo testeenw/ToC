@@ -1,0 +1,7 @@
+grep SRR7167961.313606 SRR7167961_1.fasta
+grep -A1 SRR7167961.313606 SRR7167961_1.fasta > SechYel.txt
+
+Gene Palette
+  Loaded the Melanogaster genome into GenePalette
+  Add sequence for comparison (the most conserved gene identified through BLAST analsys) 
+  Ran comparison
