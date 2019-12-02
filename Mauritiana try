@@ -1,33 +1,21 @@
 Mauritiana
 SRR7167952
-efetch -db=nucleotide -id=SRR7167952 -format=fasta>Mauritiana.fasta -> did not work
 
+Acquire data: 
+efetch -db=nucleotide -id=SRR7167952 -format=fasta>Mauritiana.fasta -> did not work
 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/002/SRR7167952/SRR7167952_1.fastq.gz
 gzip -d SRR7167952_1.fastq.gz
-
-####bowtie2 -x D.melRef -U SRR7167952_1.fastq -S MauritianaB2.sam
-  #had to change -1 to -U
   
-Blast command
-blastn -db seqcombineddb -query SRR7167952_1.fasta -out MauritianaBLAST -outfmt 7
-  *had to change query from fastq to fasta using sed -n '1~4s/^@/>/p;2~4p' SRR7167952_1.fastq > SRR7167952_1.fasta
-
-
-
-
- makeblastdb -in seqcombined.fasta -dbtype nucl -title seqcombineddb -out seqcombineddb
- 
- 
- Blastable database the other way
+Blast command:
+#did not work as too large of an output file was created  
+   makeblastdb -in seqcombined.fasta -dbtype nucl -title seqcombineddb -out seqcombineddb
+   had to change query from fastq to fasta using sed -n '1~4s/^@/>/p;2~4p' SRR7167952_1.fastq > SRR7167952_1.fasta
+   blastn -db seqcombineddb -query SRR7167952_1.fasta -out MauritianaBLAST -outfmt 7
+#Blastable database the other way
   makeblastdb -in SRR7167952_1.fasta -dbtype nucl -out Mauritianadb
- Throw around the other things 
   blastn -db Mauritianadb -query seqcombined.fasta -out MauritianaBLAST2 -outfmt 7
-  
-IT WORKED!!!
-Towards excell
-imported txt file
->90%id
 
+Best outputs:
 yellow gene is 23542271 bp
   best match NC_004354.4	SRR7167952.339637	87.386	19875	1204	888	0	21610 --row 12
              NT_033778.4	SRR7167952.364646	87.467	23068	1421	999	0	25226 --row 35881
