@@ -1,6 +1,10 @@
 Eurgracilis
-wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/003/SRR7167953/SRR7167953_1.fastq.gz 
-
+  wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/003/SRR7167953/SRR7167953_1.fastq.gz 
+  gzip -d SRR7167953_1.fastq.gz
+  sed -n '1~4s/^@/>/p;2~4p' SRR7167953_1.fastq > SRR7167953_1.fasta
+  makeblastdb -in SRR7167953_1.fasta -dbtype nucl -out Eurgracilisdb
+  blastn -db Eurgracilisdb -query seqcombined.fasta -out EurgracilisBLAST.txt -outfmt 7
+  
 Willistoni
   wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/003/SRR7167954/SRR7167954_1.fastq.gz 
   gzip -d SRR7167954_1.fastq.gz
@@ -16,27 +20,36 @@ mojavensis
  blastn -db Mojavensisdb -query seqcombined.fasta -out MojavensisBLAST.txt -outfmt 7
 
 biarmipes
-  wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/006/SRR7167956/SRR7167956_1.fastq.gz | gzip -d SRR7167956_1.fastq.gz
+  wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/006/SRR7167956/SRR7167956_1.fastq.gz 
+  gzip -d SRR7167956_1.fastq.gz
+  sed -n '1~4s/^@/>/p;2~4p' SRR7167956_1.fastq > SRR7167956_1.fasta
+  makeblastdb -in SRR7167956_1.fasta -dbtype nucl -out biarmipesdb
+  blastn -db Biarmipesdb -query seqcombined.fasta -out BiarmipesBLAST.txt -outfmt 7
 
 ananassae
+  wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/006/SRR7167956/SRR7167957_1.fastq.gz 
+  gzip -d SRR7167957_1.fastq.gz
   sed -n '1~4s/^@/>/p;2~4p' SRR7167957_1.fastq > SRR7167957_1.fasta
   makeblastdb -in SRR7167957_1.fasta -dbtype nucl -out Ananassaedb 
   blastn -db Ananassaedb -query seqcombined.fasta -out AnanassaeBLAST.txt -outfmt 7
   
 Verilis 
   wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/008/SRR7167958/SRR7167958_1.fastq.gz
+  gzip -d SRR7167958_1.fastq.gz
   sed -n '1~4s/^@/>/p;2~4p' SRR7167958_1.fastq > SRR7167958_1.fasta
   makeblastdb -in SRR7167958_1.fasta -dbtype nucl -out Verilisdb
   blastn -db Verilisdb -query seqcombined.fasta -out VerilisBLAST.txt -outfmt 7
   
 Simulans
   wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/008/SRR7167958/SRR7167959_1.fastq.gz
+  gzip -d SRR7167959_1.fastq.gz
   sed -n '1~4s/^@/>/p;2~4p' SRR7167959_1.fastq > SRR7167959_1.fasta
   makeblastdb -in SRR7167959_1.fasta -dbtype nucl -out Simulansdb
   blastn -db Simulansdb -query seqcombined.fasta -out SimulansBLAST.txt -outfmt 7
   
   Erecta
   wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/008/SRR7167958/SRR7167960_1.fastq.gz
+  gzip -d SRR7167960_1.fastq.gz
   sed -n '1~4s/^@/>/p;2~4p' SRR7167960_1.fastq > SRR7167960_1.fasta
   makeblastdb -in SRR7167960_1.fasta -dbtype nucl -out Erectadb
   blastn -db Erectadb -query seqcombined.fasta -out ErectaBLAST.txt -outfmt 7
@@ -63,14 +76,14 @@ Simulans
   blastn -db Bipectinatadb -query seqcombined.fasta -out BipectinataBLAST.txt -outfmt 7
   
   Persimilis
-  64
+  wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/001/SRR7167961/SRR7167964_1.fastq.gz
   zip -d SRR7167964_1.fastq.gz
   sed -n '1~4s/^@/>/p;2~4p' SRR7167964_1.fastq > SRR7167964_1.fasta  
   makeblastdb -in SRR7167964_1.fasta -dbtype nucl -out Persimilisdb
   blastn -db Persimilisdb -query seqcombined.fasta -out PersimilisBLAST.txt -outfmt 7
   
   yakuba
-  65
+  wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR716/001/SRR7167961/SRR7167965_1.fastq.gz
   gzip -d SRR7167965_1.fastq.gz
   sed -n '1~4s/^@/>/p;2~4p' SRR7167965_1.fastq > SRR7167965_1.fasta
   makeblastdb -in SRR7167965_1.fasta -dbtype nucl -out Yakubadb
