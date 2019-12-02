@@ -1,0 +1,12 @@
+Yellow
+
+library(readr)
+library(tidyverse)
+library(DESeq2)
+library(ggplot2)
+
+YellowTable <- as_tibble(yellow_analysis)
+ggplot(YellowTable, aes(x=reorder(species, -bitscore), y=percentage)) + 
+  geom_point(color=ifelse(YellowTable$bitscore >	20000, "Red", "Black")) + 
+   scale_y_continuous(trans='log10')+ xlab("Species") +
+   theme(axis.text.x = element_text(size=10, angle=90))
